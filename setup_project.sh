@@ -19,9 +19,9 @@ Grace,21,91,Math
 Henry,20,76,Science
 EOF
 
-#cat > src/data_analysis.py << 'EOF'
-#EOF
-#echo "Data analysis script placeholder"
+cat > src/data_analysis.py << 'EOF'
+EOF
+echo "Data analysis script placeholder"
 
 #cat > src/data_analysis_functions.py << 'EOF'
 #EOF
