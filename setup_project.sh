@@ -27,4 +27,5 @@ cat > src/data_analysis_functions.py << 'EOF'
 EOF
 echo "Data analysis functions script placeholder"
 
+
 chmod +x setup_project.sh
