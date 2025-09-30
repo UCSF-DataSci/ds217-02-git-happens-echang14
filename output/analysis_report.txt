@@ -3,3 +3,23 @@ Student Analysis Report
 Total students: 8
 Average grade: 85.9
 Math students: 3
+      
+
+Advanced Student Analysis Report
+============================
+
+Highest Grade: 95
+Lowest Grade: 76
+
+Students by Subject:
+  Math: 3
+  Science: 3
+  English: 1
+  History: 1
+
+Grade Distribution:
+  A: 3 (37.5%)
+  B: 3 (37.5%)
+  C: 2 (25.0%)
+  D: 0 (0.0%)
+  F: 0 (0.0%)

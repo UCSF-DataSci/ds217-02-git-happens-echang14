@@ -27,24 +27,29 @@ def analyze_data(students):
         return {
             "total_students": 0,
             "average_grade": 0,
-            "math_students": 0
+            "highest_grade": 0,
+            "lowest_grade": 0,
+            "subjects": {}
         }
     
     total_students = len(students)
     highest_grade = max(s[2] for s in students)
     lowest_grade = min(s[2] for s in students)
     average_grade = sum(s[2] for s in students) / total_students
-    math_students = sum(1 for s in students if s[3] == "Math")
-    science_students = sum(1 for s in students if s[3] == "Science") 
-    english_students = sum(1 for s in students if s[3] == "English") 
-    return {"total_students:", total_students,
-            "average_grade:", average_grade,
-            "math_students:", math_students,
-            "highest_grade:", highest_grade,
-            "lowest_grade:", lowest_grade,
-            "science_students:", science_students,
-            "english_students:", english_students
-            }
+    
+    # Count subjects into a dictionary
+    subjects = {}
+    for s in students:
+        subj = s[3]
+        subjects[subj] = subjects.get(subj, 0) + 1
+    
+    return {
+        "total_students": total_students,
+        "average_grade": average_grade,
+        "highest_grade": highest_grade,
+        "lowest_grade": lowest_grade,
+        "subjects": subjects
+    }
 
 
 def analyze_grade_distribution(grades): 
@@ -72,11 +77,10 @@ def analyze_grade_distribution(grades):
 
 def save_results(results, filename): 
     """Save detailed report"""
-    with open(filename, "w") as f:
-        f.write("STUDENT DATA ANALYSIS REPORT\n")
+    with open(filename, "a") as f:
+        f.write("      \n\n")
+        f.write("Advanced Student Analysis Report\n")
         f.write("============================\n\n")
-        f.write(f"Total Students: {results['total_students']}\n")
-        f.write(f"Average Grade: {results['average_grade']:.1f}\n")
         f.write(f"Highest Grade: {results['highest_grade']}\n")
         f.write(f"Lowest Grade: {results['lowest_grade']}\n\n")
 
@@ -91,3 +95,12 @@ def save_results(results, filename):
 
 def main(): 
     """Orchestrate the analysis using all functions"""
+    students = load_data("data/students.csv")
+    stats = analyze_data(students)
+    grades = [s[2] for s in students]
+    grade_distribution = analyze_grade_distribution(grades)
+    stats["grade_distribution"] = grade_distribution
+    save_results(stats, "output/analysis_report.txt")
+
+if __name__ == "__main__":
+    main()
