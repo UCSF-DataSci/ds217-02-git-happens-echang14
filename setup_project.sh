@@ -21,7 +21,7 @@ EOF
 
 cat > src/data_analysis.py << 'EOF'
 def load_students(filename):
-    ""Read student data from a CSV file and return a list student data"""
+    """Read student data from a CSV file and return a list student data"""
     # TODO: Open file, read lines, skip header
     # TODO: Split each line by comma
     # TODO: Return list of student data
