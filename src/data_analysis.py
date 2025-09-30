@@ -46,12 +46,12 @@ def save_report(report, filename):
 
 def main():
     """Main function to generate and save report"""
-    students = load_students("students.csv")
+    students = load_students("data/students.csv")
     total_students = len(students)
     average_grade = calculate_average_grade(students)
     math_students = count_math_students(students)
     report = generate_report(total_students, average_grade, math_students)
-    save_report(report, "report.txt")
+    save_report(report, "output/analysis_report.txt")
 
 if __name__ == "__main__": 
     main()
