@@ -1,8 +1,5 @@
+Student Analysis Report
+-----------------------
 Total students: 8
 Average grade: 85.9
-
-Students by subject:
-- Math: 3
-- Science: 3
-- English: 1
-- History: 1
+Math students: 3
